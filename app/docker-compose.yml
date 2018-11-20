@@ -1,0 +1,18 @@
+version : '3'
+services:
+  service-back:
+    image: htagliero/tp2-docker:0.1
+    environment:
+      - ENVIRONMENT=dev
+#    volumes:
+#      - "./logs:/logs"
+
+  service-front:
+    image: htagliero/tp2front:0.1
+    ports:
+      - "1010:1010"
+    environment:
+      - APP_PORT=1010
+      - WS_BACK_URL=backend
+    links:
+      - "service-back:backend"
