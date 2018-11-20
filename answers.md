@@ -51,12 +51,18 @@ UBUNTU_CODENAME=xenial
 ## 1.11
 command: sudo docker run -d -p 1010:1010 -e APP_PORT=1010 -e WS_BACK_URL=172.17.0.1 htagliero/tp2-docker
 
+command: docker exec -it [back_container_id] bash
+
 
 ## 2.1
 command: command: docker-compose up
 
 
 ## 2.6
-command: 
-command:
+command: docker-compose up -d command: docker-compose logs
+
+
+## 2.9
+command: docker-compose up -d --scale service-back=2
+
 
